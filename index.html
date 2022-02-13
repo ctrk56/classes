@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adhvik Cherukuri</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+
+  <style>
+    @media all and (max-width: 35em) {
+    .my-breakpoint .ui-block-a,
+    .my-breakpoint .ui-block-b
+     {
+      width: 30%;
+    }
+  }
+ 
+  @media all and (min-width: 45em) {
+    .my-breakpoint.ui-grid-b .ui-block-a,
+    .my-breakpoint.ui-grid-b .ui-block-b
+    { width: 29.95%; 
+      float: none;
+    }
+  }
+  </style>
+  <script>
+    $(document).ready(function(){
+        $(".keyP").css({"padding-left": ".9em", "padding-bottom":".2em"});
+        $(".dayName").css({"font-weight": "bold", "color": "black", "padding": ".2em" });
+        $(".joinP").css({"color": "blue",  "font-size": "120%", "padding-left": ".9em", "padding-bottom":".2em", "font-weight": "bold"});
+        $(".pinP" ).css({"color": "black", "padding-left": ".9em"});
+        $('[class*="ui-block"]').css({"width": "200", "background-color": "#FFC300", "border-radius": 10});
+        // var encrypted = CryptoJS.AES.encrypt("sample", $("#key").val());
+        // console.log(encrypted.toString());
+
+        $(".joinP").click(function(e) {
+          var encrypted = $(this).attr('linkData');
+          var decrypted = CryptoJS.AES.decrypt(encrypted.toString(), $("#key").val());
+          console.log(decrypted.toString(CryptoJS.enc.Utf8));
+          location.href = decrypted.toString(CryptoJS.enc.Utf8);
+        });
+    });
+
+
+  </script>
+</head>
+<body>
+<div data-role="header">
+    <h1>Adhvik Class Schedule</h1>
+  </div>
+  <div role="main" class="ui-content">
+    <div class="ui-grid-d ui-responsive">
+      <div class="ui-block-a"><div class="ui-body ui-body-d dayName">Key</div>
+        <p class="keyP"><input id="key"></p></p>
+      </div>
+      <div class="ui-block-a"><div class="ui-body ui-body-d dayName">Music Class</div>
+        <p class="pinP">PIN: vocal</p>
+        <p class="joinP" linkData="U2FsdGVkX1+yu1r0li4wxDzMZ+/pmEVGXniZnfFOmCLsBE56vasQoIe2rfGqDvIGSDmpEUvMLmT3J/8PZB+gTPDiizeI20Pj7cF4Sc7g2+mBy5hBLANKxubJdg7iK/iC">JOIN</p>
+      </div>
+      <div class="ui-block-b"><div class="ui-body ui-body-d dayName">Math Class</div>
+        <p class="pinP">PIN: 12345</p>
+        <p class="joinP" linkData="U2FsdGVkX1/Oko1g8lYpw1hOSdLEHwqrDhWMb3SxpICuvDN/8SaF3cZzc5XUDmVZGH9iLFTveUp2lsDhsVBf+uX+mDVQhogw+oUp9gbCIgxXfyORwjtx2FCX1RdER8my">JOIN</p>
+      </div>
+    </div>
+</body>
+</html>
