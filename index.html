@@ -36,7 +36,7 @@
 
         $(".joinP").click(function(e) {
           var encrypted = $(this).attr('linkData');
-          var decrypted = CryptoJS.AES.decrypt(encrypted.toString(), $("#key").val());
+          var decrypted = CryptoJS.AES.decrypt(encrypted.toString(), $("#key").val().toLowerCase());
           console.log(decrypted.toString(CryptoJS.enc.Utf8));
           location.href = decrypted.toString(CryptoJS.enc.Utf8);
         });
