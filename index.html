@@ -31,13 +31,12 @@
         $(".joinP").css({"color": "blue",  "font-size": "120%", "padding-left": ".9em", "padding-bottom":".2em", "font-weight": "bold"});
         $(".pinP" ).css({"color": "black", "padding-left": ".9em"});
         $('[class*="ui-block"]').css({"width": "200", "background-color": "#FFC300", "border-radius": 10});
-        // var encrypted = CryptoJS.AES.encrypt("sample", $("#key").val());
-        // console.log(encrypted.toString());
+        //var encrypted = CryptoJS.AES.encrypt("url", "key");
 
         $(".joinP").click(function(e) {
           var encrypted = $(this).attr('linkData');
-          var decrypted = CryptoJS.AES.decrypt(encrypted.toString(), $("#key").val().toLowerCase());
-          console.log(decrypted.toString(CryptoJS.enc.Utf8));
+          var decrypted = CryptoJS.AES.decrypt(encrypted.toString(), $("#key").val());
+//          console.log(decrypted.toString(CryptoJS.enc.Utf8));
           location.href = decrypted.toString(CryptoJS.enc.Utf8);
         });
     });
@@ -59,8 +58,8 @@
         <p class="joinP" linkData="U2FsdGVkX1+yu1r0li4wxDzMZ+/pmEVGXniZnfFOmCLsBE56vasQoIe2rfGqDvIGSDmpEUvMLmT3J/8PZB+gTPDiizeI20Pj7cF4Sc7g2+mBy5hBLANKxubJdg7iK/iC">JOIN</p>
       </div>
       <div class="ui-block-b"><div class="ui-body ui-body-d dayName">Math Class</div>
-        <p class="pinP">PIN: 12345</p>
-        <p class="joinP" linkData="U2FsdGVkX1/Oko1g8lYpw1hOSdLEHwqrDhWMb3SxpICuvDN/8SaF3cZzc5XUDmVZGH9iLFTveUp2lsDhsVBf+uX+mDVQhogw+oUp9gbCIgxXfyORwjtx2FCX1RdER8my">JOIN</p>
+        <p class="pinP">PIN: mm1213</p>
+        <p class="joinP" linkData="U2FsdGVkX1/4SljZBx6Aup++6nHCrLHXgTayWHoPFCshin4g7j43M16H+KHr9GX5uPDIDZOLGOLJv4KUhe1ULQ==">JOIN</p>
       </div>
     </div>
 </body>
